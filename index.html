@@ -6,40 +6,45 @@
   <title>Anya Gupta | Illustrator & Character Designer</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset */
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
     html {
       scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      scroll-padding-top: 70px;
+      background: #fafafa;
     }
     body {
       font-family: 'Poppins', sans-serif;
-      background: #fff;
       color: #222;
       overflow-x: hidden;
+      background: linear-gradient(135deg, #f0f0f5 0%, #ffffff 100%);
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255,255,255,0.95);
-      box-shadow: 0 2px 10px rgb(0 0 0 / 0.07);
-      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      z-index: 10000;
       display: flex;
       justify-content: center;
-      padding: 15px 0;
+      padding: 18px 0;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      user-select: none;
+      transition: background 0.3s ease;
     }
     nav a {
       text-decoration: none;
-      color: #666;
-      font-weight: 600;
-      margin: 0 25px;
-      font-size: 1rem;
-      transition: color 0.3s;
+      color: #555;
+      margin: 0 30px;
+      font-size: 1.05rem;
       position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
     }
     nav a:hover, nav a:focus {
       color: #ff4757;
@@ -48,134 +53,181 @@
     nav a::after {
       content: "";
       position: absolute;
-      bottom: -6px;
+      bottom: 0;
       left: 0;
       width: 0%;
-      height: 2px;
+      height: 3px;
       background: #ff4757;
+      border-radius: 2px;
       transition: width 0.3s ease;
     }
     nav a:hover::after, nav a:focus::after {
       width: 100%;
     }
 
-    /* HERO */
-    .hero {
-      height: 100vh;
+    section {
+      scroll-snap-align: start;
+      min-height: 100vh;
+      padding: 40px 20px 60px 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      box-sizing: border-box;
       text-align: center;
-      background: #1a1a1a;
-      color: white;
+      user-select: none;
+    }
+
+    /* HERO */
+    .hero {
+      background: #121212;
+      color: #fefefe;
+      justify-content: center;
+      text-align: center;
       padding: 0 20px;
-      position: relative;
+      flex-direction: column;
+      gap: 30px;
     }
     .hero h1 {
-      font-size: 5vw;
+      font-size: 6vw;
       font-weight: 900;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
       margin-bottom: 0.3em;
       line-height: 1.1;
       font-family: 'Poppins', sans-serif;
+      text-shadow: 0 2px 6px rgba(255, 71, 87, 0.6);
     }
     .hero span {
-      font-size: 1.5vw;
-      letter-spacing: 0.2em;
+      font-size: 1.7vw;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
       color: #ff4757;
       font-family: 'Poppins', sans-serif;
+      text-shadow: 0 1px 3px rgba(255, 71, 87, 0.5);
+      margin-top: -10px;
     }
+    .hero img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 8px 30px rgba(255, 71, 87, 0.3);
+  border: 4px solid #ff4757;
+}
 
-    /* PORTFOLIO vertical scroll */
+
+    /* PORTFOLIO */
     #portfolio {
-      background: #f0f0f0;
-      scroll-snap-type: y mandatory;
-      overflow-y: auto;
-      height: 100vh;
-      max-width: 100vw;
-      margin: 0 auto;
+      background: #fff;
+      padding: 40px 0 60px 0;
+      width: 100%;
     }
     #portfolio .slide {
-      scroll-snap-align: start;
+      width: 100vw;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 40px 20px;
-      box-sizing: border-box;
-      background: white;
-      border-bottom: 1px solid #ddd;
+      margin-bottom: 50px;
+      background: #f9f9fa;
+      border-radius: 25px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: zoom-in;
+    }
+    #portfolio .slide:hover {
+      transform: scale(1.03);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
     }
     #portfolio .slide img {
-      max-height: 90vh;
+      max-height: 88vh;
       max-width: 90vw;
       object-fit: contain;
-      border-radius: 20px;
-      filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15));
-      user-select: none;
+      border-radius: 25px;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
       pointer-events: none;
-      transition: transform 0.3s ease;
-    }
-    #portfolio .slide img:hover {
-      transform: scale(1.05);
+      user-select: none;
     }
 
-    /* About */
+    /* ABOUT */
     #about {
-      background: #f9f9f9;
-      padding: 60px 20px;
-      max-width: 700px;
-      margin: 0 auto 80px auto;
+      background: linear-gradient(135deg, #fff5f8 0%, #ffe6eb 100%);
+      max-width: 720px;
+      margin: 60px auto;
+      padding: 50px 40px;
+      border-radius: 25px;
+      box-shadow: 0 18px 45px rgba(255, 71, 87, 0.3);
       text-align: center;
-      color: #444;
+      color: #4a2c35;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      user-select: text;
+    }
+    #about:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(255, 71, 87, 0.45);
     }
     #about h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: #333;
-      letter-spacing: 0.05em;
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 28px;
+      color: #d9445a;
+      letter-spacing: 0.1em;
+      text-shadow: 1px 1px 3px rgba(217, 68, 90, 0.3);
     }
     #about p {
-      font-size: 1.1rem;
-      line-height: 1.7;
+      font-size: 1.25rem;
+      line-height: 1.75;
+      margin-bottom: 0;
     }
 
-    /* Contact */
+    /* CONTACT */
     #contact {
-      padding: 60px 20px;
-      max-width: 700px;
-      margin: 0 auto 80px auto;
+      background: linear-gradient(135deg, #2b0a0f 0%, #4a1e29 100%);
+      color: #f9d6dc;
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 60px 30px;
+      border-radius: 25px;
+      box-shadow: 0 18px 45px rgba(74, 30, 41, 0.8);
       text-align: center;
-      color: #444;
     }
     #contact h2 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 24px;
-      color: #333;
-      letter-spacing: 0.05em;
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 28px;
+      letter-spacing: 0.1em;
+      color: #ff6b81;
+      text-shadow: 1px 1px 4px rgba(255, 107, 129, 0.8);
     }
     #contact p {
-      font-size: 1.1rem;
-      margin-bottom: 16px;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #f7c8d1;
     }
     #contact a {
-      color: #ff4757;
+      display: inline-flex;
+      align-items: center;
+      color: #ff6b81;
+      font-weight: 700;
+      font-size: 1.2rem;
       text-decoration: none;
-      font-weight: 600;
       border-bottom: 2px solid transparent;
-      transition: border-color 0.3s ease;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
-    #contact a:hover, #contact a:focus {
-      border-color: #ff4757;
-      outline: none;
+    #contact a:hover {
+      border-color: #ff4763;
+      color: #ff4763;
+    }
+    #contact a svg {
+      width: 22px;
+      height: 22px;
+      margin-right: 12px;
+      stroke: currentColor;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 12vw;
@@ -183,14 +235,17 @@
       .hero span {
         font-size: 4vw;
       }
-      #portfolio .slide {
-        padding: 20px 10px;
-      }
-      #portfolio .slide img {
-        max-height: 70vh;
-        max-width: 95vw;
+      .hero img {
+        max-width: 160px;
       }
     }
+    @media (max-width: 768px) {
+  .hero-image img {
+    width: 160px;
+    height: 160px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -201,12 +256,13 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="hero">
+    <img src="cv photo.png" alt="Illustration of girl holding paper" loading="lazy" />
     <h1>Anya Gupta</h1>
     <span>Illustrator & Character Designer</span>
   </section>
 
-  <section id="portfolio" tabindex="0">
+  <section id="portfolio" aria-label="Portfolio illustrations">
     <div class="slide"><img src="snowfairy.png" alt="Artwork 8" loading="lazy" /></div>
     <div class="slide"><img src="room illustraion.png" alt="Artwork 1" loading="lazy" /></div>
     <div class="slide"><img src="final room-Rough.png" alt="Artwork 2" loading="lazy" /></div>
@@ -216,20 +272,30 @@
     <div class="slide"><img src="kitty ill.png" alt="Artwork 7" loading="lazy" /></div>
     <div class="slide"><img src="forest.png" alt="Artwork 8" loading="lazy" /></div>
     <div class="slide"><img src="train.png" alt="Artwork 8" loading="lazy" /></div>
-</section>
 
-  <section id="about">
+  
+  </section>
+
+  <section id="about" tabindex="0" aria-label="About me">
     <h2>About Me</h2>
     <p>
-      I’m Anya Gupta, a passionate illustrator and character designer specializing in creating vibrant and emotive visual stories. My work focuses on clean lines, bold colors, and expressive characters.
+      Hi, I’m <strong>Anya Gupta</strong> — a character designer and illustrator with a love for visual storytelling, whimsical worlds, and emotionally rich characters. My work blends soft palettes, expressive forms, and narrative-driven compositions to bring personalities and places to life.
+      <br /><br />
+      Whether it's designing a cozy room, a quiet ramen shop, or a curious cat’s adventure, I focus on creating illustrations that make people pause, feel, and imagine. Inspired by everyday moments, film stills, and childhood nostalgia — I’m here to turn simple ideas into memorable scenes.
     </p>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
+  <section id="contact" tabindex="0" aria-label="Contact me">
+    <h2>Let’s Work Together</h2>
     <p>
-      Interested in working together? Reach out via <a href="mailto:anyathisside@gmail.com">anyathisside@gmail.com</a>
+      Got a project in mind, want to collaborate, or just say hello? I'm always open to new ideas, freelance gigs, and art-filled conversations. Drop me a message — I'd love to hear from you!
     </p>
+    <a href="mailto:anyathisside@gmail.com" aria-label="Email anyathisside@gmail.com">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="none" stroke="currentColor" stroke-width="2" d="M2 4h20v16H2zM2 4l10 9 10-9"/>
+      </svg>
+      anyathisside@gmail.com
+    </a>
   </section>
 
 </body>
