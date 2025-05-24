@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anya Gupta | Illustrator & Character Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.07);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+    }
+    nav a {
+      text-decoration: none;
+      color: #666;
+      font-weight: 600;
+      margin: 0 25px;
+      font-size: 1rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+    nav a:hover, nav a:focus {
+      color: #ff4757;
+      outline: none;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #ff4757;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after, nav a:focus::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: #1a1a1a;
+      color: white;
+      padding: 0 20px;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 5vw;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3em;
+      line-height: 1.1;
+      font-family: 'Poppins', sans-serif;
+    }
+    .hero span {
+      font-size: 1.5vw;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #ff4757;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* PORTFOLIO vertical scroll */
+    #portfolio {
+      background: #f0f0f0;
+      scroll-snap-type: y mandatory;
+      overflow-y: auto;
+      height: 100vh;
+      max-width: 100vw;
+      margin: 0 auto;
+    }
+    #portfolio .slide {
+      scroll-snap-align: start;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+      background: white;
+      border-bottom: 1px solid #ddd;
+    }
+    #portfolio .slide img {
+      max-height: 90vh;
+      max-width: 90vw;
+      object-fit: contain;
+      border-radius: 20px;
+      filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15));
+      user-select: none;
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+    #portfolio .slide img:hover {
+      transform: scale(1.05);
+    }
+
+    /* About */
+    #about {
+      background: #f9f9f9;
+      padding: 60px 20px;
+      max-width: 700px;
+      margin: 0 auto 80px auto;
+      text-align: center;
+      color: #444;
+    }
+    #about h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #333;
+      letter-spacing: 0.05em;
+    }
+    #about p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Contact */
+    #contact {
+      padding: 60px 20px;
+      max-width: 700px;
+      margin: 0 auto 80px auto;
+      text-align: center;
+      color: #444;
+    }
+    #contact h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: #333;
+      letter-spacing: 0.05em;
+    }
+    #contact p {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+    }
+    #contact a {
+      color: #ff4757;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    #contact a:hover, #contact a:focus {
+      border-color: #ff4757;
+      outline: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 12vw;
+      }
+      .hero span {
+        font-size: 4vw;
+      }
+      #portfolio .slide {
+        padding: 20px 10px;
+      }
+      #portfolio .slide img {
+        max-height: 70vh;
+        max-width: 95vw;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Anya Gupta</h1>
+    <span>Illustrator & Character Designer</span>
+  </section>
+
+  <section id="portfolio" tabindex="0">
+    <div class="slide"><img src="snowfairy.png" alt="Artwork 8" loading="lazy" /></div>
+    <div class="slide"><img src="room illustraion.png" alt="Artwork 1" loading="lazy" /></div>
+    <div class="slide"><img src="final room-Rough.png" alt="Artwork 2" loading="lazy" /></div>
+    <div class="slide"><img src="ramen shop illustration.png" alt="Artwork 3" loading="lazy" /></div>
+    <div class="slide"><img src="ramen shop rough.png" alt="Artwork 4" loading="lazy" /></div>
+    <div class="slide"><img src="cat boy.png" alt="Artwork 5" loading="lazy" /></div>
+    <div class="slide"><img src="kitty ill.png" alt="Artwork 7" loading="lazy" /></div>
+    <div class="slide"><img src="forest.png" alt="Artwork 8" loading="lazy" /></div>
+    <div class="slide"><img src="train.png" alt="Artwork 8" loading="lazy" /></div>
+</section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      I’m Anya Gupta, a passionate illustrator and character designer specializing in creating vibrant and emotive visual stories. My work focuses on clean lines, bold colors, and expressive characters.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      Interested in working together? Reach out via <a href="mailto:anyathisside@gmail.com">anyathisside@gmail.com</a>
+    </p>
+  </section>
+
+</body>
+</html>
